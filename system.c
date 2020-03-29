@@ -1,4 +1,3 @@
-
 #include<stdio.h>
 #include<string.h>
  
@@ -29,11 +28,12 @@ void faculty_Queue(int no_of_process) {
     printf("Now, enter the quantum time for FACULTY queue : ");
     scanf("%d", &quantum_time);
  
- 
     // sorting the processes by their ARRIVAL time.
     // if the ARRIVAL time is same then scheduling is based on FCFS.
+    int x;
     for(count = 0; count < no_of_process; count++) {
-        for(int x = count +1; x < count; x++){
+    	
+        for(x = count +1; x < count; x++){
             if(faculty_Process[count].arrival_time > faculty_Process[x].arrival_time) {
                 temp_Struct = faculty_Process[count];
                 faculty_Process[count] = faculty_Process[x];
@@ -54,7 +54,7 @@ void faculty_Queue(int no_of_process) {
     round_robin[queue] = 0;
  
    
-    int flag, x, n, z, waiting_time = 0;
+    int flag, n, z, waiting_time = 0;
     do {
         for(count = 0; count < no_of_process; count++){
             if(total_time >= faculty_Process[count].arrival_time){
@@ -139,9 +139,10 @@ void student_Queue(int no_of_process) {
  
  
     // sorting the processes by their ARRIVAL time.
+    int x;
     // if the ARRIVAL time is same then scheduling is based on FCFS.
     for(count = 0; count < no_of_process; count++) {
-        for(int x = count +1; x < count; x++){
+        for(x = count +1; x < count; x++){
             if(student_Process[count].arrival_time > student_Process[x].arrival_time) {
                 temp_Struct = student_Process[count];
                 student_Process[count] = student_Process[x];
